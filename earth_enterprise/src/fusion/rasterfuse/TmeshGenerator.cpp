@@ -79,8 +79,9 @@ TmeshGenerator::Generate(float *srcSamples,
   // jdjohnso - The allowable error on border tiles is 1/10 that of interior
   // tiles. This is because we really want the border tiles to match. If not
   // we get rips between mesh tiles in the client.
-  int error_level = tmeshAddr.level+1;
-  double error = 0.009 * pow(2, 11-error_level);
+  // Disable decimation for spike evaluation:
+  //int error_level = tmeshAddr.level+1;
+  double error = 0.0; //0.009 * pow(2, 11-error_level);
   double borderError = error / 10.0;
 
   // calculate position of this quadnode WRT the larger heightmap tile.
